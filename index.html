@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DKB Anchor Security Services Ltd.</title>
+    
+    <!-- Cross-Device Favicons & App Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="logo.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="logo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="logo.png">
+    <link rel="shortcut icon" href="logo.png">
+    
+    <!-- SEO & Performance -->
+    <meta name="description" content="Professional security services, residential and corporate guarding, and rapid response solutions in Ghana.">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0A192F">
+    
+    <style>
+        :root {
+            /* Color Palette */
+            --deep-blue: #0A192F;
+            --gold: #D4AF37;
+            --gold-hover: #b5952f;
+            --white: #F8F9FA;
+            --off-white: #E9ECEF;
+            --text-dark: #333333;
+        }
+
+        body { 
+            margin: 0; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background-color: var(--white); 
+            color: var(--text-dark); 
+            scroll-behavior: smooth;
+        }
+
+        /* Header & Navigation */
+        header { 
+            background-color: var(--deep-blue); 
+            color: var(--gold); 
+            padding: 15px 50px; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        /* Logo & Company Name Styles */
+        .logo-container {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo {
+            height: 60px;
+            width: auto;
+            max-width: 80px;
+            object-fit: contain;
+        }
+
+        .company-name {
+            color: var(--gold);
+            font-size: 22px;
+            font-weight: 700;
+            margin-left: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
+        nav a { 
+            color: var(--white); 
+            text-decoration: none; 
+            margin-left: 25px; 
+            font-weight: 500; 
+            transition: color 0.3s ease; 
+        }
+
+        nav a:hover { 
+            color: var(--gold); 
+        }
+
+        /* Hero Section (Carousel as Background) */
+        .hero { 
+            position: relative;
+            min-height: 85vh; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            text-align: center; 
+            color: var(--white); 
+            padding: 0 20px;
+            overflow: hidden;
+        }
+
+        /* Auto-Scrolling Hero Carousel */
+        .hero-carousel {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .carousel-track {
+            display: flex;
+            width: 500%; /* 5 images * 100% */
+            height: 100%;
+            transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .carousel-track img {
+            flex: 0 0 20%; /* Each image takes 1/5th of the track */
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Dark Overlay for Text Readability */
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(10, 25, 47, 0.75); /* Deep blue with 75% opacity */
+            z-index: 2;
+        }
+
+        /* Text & Button Overlay Container */
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            max-width: 800px;
+        }
+
+        .hero-content h2 { 
+            font-size: 54px; 
+            color: var(--gold); 
+            margin-top: 0;
+            margin-bottom: 20px; 
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+        }
+
+        .hero-content p { 
+            font-size: 22px; 
+            margin: 0 auto 35px; 
+            line-height: 1.6;
+            color: var(--white);
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+
+        .btn { 
+            background-color: var(--gold); 
+            color: var(--deep-blue); 
+            padding: 16px 32px; 
+            font-size: 16px;
+            text-decoration: none; 
+            font-weight: bold; 
+            border-radius: 4px; 
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s; 
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: inline-block;
+        }
+
+        .btn:hover { 
+            background-color: var(--gold-hover); 
+            transform: scale(1.03);
+        }
+
+        /* Slider Indicators (Dots) */
+        .slider-indicators {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+            z-index: 3;
+        }
+
+        .dot {
+            width: 14px;
+            height: 14px;
+            background-color: rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .dot.active {
+            background-color: var(--gold);
+            transform: scale(1.2);
+        }
+
+        .dot:hover {
+            background-color: rgba(212, 175, 55, 0.7); /* Gold with opacity */
+        }
+
+        /* Modal / Pop-up Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(10, 25, 47, 0.85);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background-color: var(--white);
+            padding: 40px;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 500px;
+            position: relative;
+            transform: translateY(-20px);
+            transition: transform 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: translateY(0);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            color: #999;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .close-modal:hover {
+            color: var(--deep-blue);
+        }
+
+        .modal-content h3 {
+            color: var(--deep-blue);
+            font-size: 26px;
+            margin-top: 0;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* Shared Section Styles */
+        .section-padding {
+            padding: 80px 50px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            color: var(--deep-blue);
+            font-size: 36px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        /* About Section Layout */
+        .about-layout {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-text {
+            flex: 1;
+            font-size: 18px;
+            line-height: 1.8;
+            color: var(--text-dark);
+        }
+        
+        .about-text strong {
+            color: var(--deep-blue);
+        }
+
+        .about-image {
+            flex: 1;
+            text-align: center;
+        }
+
+        .about-image img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-bottom: 5px solid var(--gold);
+            object-fit: cover;
+        }
+
+        /* Services Section */
+        .services-bg {
+            background-color: var(--off-white);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            overflow: hidden; /* Ensures the image respects the border radius */
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .service-card-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-bottom: 4px solid var(--gold);
+        }
+
+        .service-card-content {
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .service-card h3 {
+            color: var(--deep-blue);
+            font-size: 22px;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* Horizontal Gallery */
+        .gallery-container h2 {
+            text-align: left;
+            margin-bottom: 20px;
+            color: var(--deep-blue);
+        }
+
+        .gallery { 
+            display: flex; 
+            overflow-x: auto; 
+            gap: 20px; 
+            padding-bottom: 20px;
+            scrollbar-width: thin;
+            scrollbar-color: var(--gold) var(--white);
+        }
+
+        .gallery::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .gallery::-webkit-scrollbar-thumb {
+            background-color: var(--gold);
+            border-radius: 4px;
+        }
+
+        .gallery img { 
+            height: 250px; 
+            min-width: 350px;
+            border-radius: 8px; 
+            object-fit: cover; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        /* Contact Section & Form Shared Styles */
+        .contact-content {
+            display: flex;
+            gap: 50px;
+            max-width: 1100px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+        }
+
+        .contact-info, .contact-form {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .contact-info h3 {
+            color: var(--deep-blue);
+            font-size: 24px;
+            margin-top: 0;
+        }
+
+        .contact-info p {
+            font-size: 18px;
+            margin: 20px 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            line-height: 1.5;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .modal-content .contact-form {
+            padding: 0;
+            box-shadow: none;
+            background: transparent;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-family: inherit;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        .contact-form input:focus, .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--gold);
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: var(--deep-blue);
+            color: var(--white);
+            padding: 60px 50px 20px 50px;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 40px;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .footer-section h3 {
+            color: var(--gold);
+            font-size: 20px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-section p {
+            line-height: 1.6;
+            color: #d1d5db;
+            margin-bottom: 15px;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #d1d5db;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+        }
+
+        .footer-contact-info p {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 15px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            color: #9ca3af;
+            font-size: 14px;
+        }
+
+        /* Floating WhatsApp */
+        .whatsapp-float { 
+            position: fixed; 
+            bottom: 30px; 
+            right: 30px; 
+            background-color: #25D366; 
+            color: white; 
+            border-radius: 50px; 
+            padding: 15px 20px; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3); 
+            text-decoration: none; 
+            font-weight: bold; 
+            display: flex; 
+            align-items: center; 
+            z-index: 1000; 
+            transition: transform 0.2s;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.05);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+                padding: 15px;
+            }
+            .company-name {
+                font-size: 18px;
+            }
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+            nav a {
+                margin: 0 10px;
+            }
+            .hero-content h2 {
+                font-size: 38px;
+            }
+            .hero-content p {
+                font-size: 18px;
+            }
+            .section-padding {
+                padding: 50px 20px;
+            }
+            .about-layout {
+                flex-direction: column;
+            }
+            footer {
+                padding: 50px 20px 20px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <header>
+        <a href="#home" class="logo-container">
+            <img src="logo.webp" alt="DKB Anchor Security Services Ltd. Logo" class="logo">
+            <span class="company-name">DKB Anchor Security</span>
+        </a>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About Us</a>
+            <a href="#services">Services</a>
+            <a href="#gallery">Operations</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- HOME / HERO SECTION -->
+    <section class="hero" id="home">
+        
+        <!-- 5 Auto-Scrollable Background Images -->
+        <div class="hero-carousel">
+            <div class="carousel-track" id="heroTrack">
+                <img src="hero-slider-1.webp" alt="Professional Security Guards">
+                <img src="hero-slider-2.webp" alt="CCTV Camera Installation">
+                <img src="hero-slider-3.webp" alt="Security Patrol Fleet">
+                <img src="hero-slider-4.webp" alt="Electric Fencing Perimeter">
+                <img src="hero-slider-5.webp" alt="Control Room Monitoring">
+            </div>
+        </div>
+
+        <!-- Dark Overlay -->
+        <div class="hero-overlay"></div>
+
+        <!-- Text & Button Container -->
+        <div class="hero-content">
+            <h2>Uncompromising Security Solutions</h2>
+            <p>Delivering top-tier protection, proactive patrols, and absolute peace of mind through highly trained professionals and advanced technology.</p>
+            <button id="openModalBtn" class="btn">Request a Consultation</button>
+        </div>
+
+        <!-- Carousel Indicators (Dots) -->
+        <div class="slider-indicators">
+            <span class="dot active" onclick="goToSlide(0)"></span>
+            <span class="dot" onclick="goToSlide(1)"></span>
+            <span class="dot" onclick="goToSlide(2)"></span>
+            <span class="dot" onclick="goToSlide(3)"></span>
+            <span class="dot" onclick="goToSlide(4)"></span>
+        </div>
+    </section>
+
+    <!-- ABOUT US SECTION -->
+    <section class="section-padding" id="about">
+        <div class="section-header">
+            <h2>About Us</h2>
+            <p>Committed to securing your world with excellence and integrity.</p>
+        </div>
+        <div class="about-layout">
+            <div class="about-text">
+                <p><strong>DKB Anchor Security Services Ltd.</strong> is a premier security firm based in Accra, Ghana, dedicated to providing uncompromising protection for businesses, residences, and industrial sectors. With extensive experience and a deep understanding of the local security landscape, we deploy proactive strategies and advanced technology to mitigate risks before they escalate.</p>
+                <p>Our personnel are rigorously vetted and highly trained to handle diverse security challenges. From manned guarding and specialized electronic surveillance to rapid response and comprehensive risk assessments, we operate with a singular mission: to deliver absolute peace of mind and safety to our clients around the clock.</p>
+            </div>
+            <div class="about-image">
+                <img src="about-us.webp" alt="DKB Anchor Security Team and Operations">
+            </div>
+        </div>
+    </section>
+
+    <!-- CONSULTATION MODAL / POPUP -->
+    <div class="modal-overlay" id="consultationModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeModal">&times;</span>
+            <h3>Request a Quote</h3>
+            <form class="contact-form" id="popupQuoteForm">
+                <input type="text" placeholder="Full Name" required>
+                <input type="email" placeholder="Email Address" required>
+                <input type="tel" placeholder="Phone Number" required>
+                <textarea rows="4" placeholder="Briefly describe your security requirements..." required></textarea>
+                <button type="submit" class="btn" style="width: 100%;">Submit Request</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- SERVICES SECTION -->
+    <section class="section-padding services-bg" id="services">
+        <div class="section-header">
+            <h2>Our Services</h2>
+            <p>Tailored security operations designed to mitigate risk and protect assets.</p>
+        </div>
+        <div class="services-grid">
+            
+            <div class="service-card">
+                <img src="service-manned.webp" alt="Manned Guarding" class="service-card-img">
+                <div class="service-card-content">
+                    <h3>Manned Guarding</h3>
+                    <p>Highly trained and vetted personnel providing physical security for commercial, industrial, and residential properties.</p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <img src="service-residential.webp" alt="Residential Security" class="service-card-img">
+                <div class="service-card-content">
+                    <h3>Residential Security</h3>
+                    <p>Comprehensive security solutions designed to protect your home and family, offering 24/7 peace of mind for private residences and gated communities.</p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <img src="service-corporate.webp" alt="Corporate Security" class="service-card-img">
+                <div class="service-card-content">
+                    <h3>Corporate Security</h3>
+                    <p>Tailored security protocols for business environments, safeguarding employees, sensitive data, and physical assets with seamless professionalism.</p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <img src="service-surveillance.webp" alt="Electronic Surveillance" class="service-card-img">
+                <div class="service-card-content">
+                    <h3>Electronic Surveillance</h3>
+                    <p>24/7 CCTV monitoring and advanced access control systems to keep a constant watch over your premises.</p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <img src="service-response.webp" alt="Rapid Response" class="service-card-img">
+                <div class="service-card-content">
+                    <h3>Rapid Response</h3>
+                    <p>Mobile patrol units on standby, ready to deploy immediately to alarm activations or incident reports.</p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <img src="service-cctv-install.webp" alt="CCTV Camera Installation" class="service-card-img">
+                <div class="service-card-content">
+                    <h3>CCTV Camera Installation</h3>
+                    <p>Professional installation and maintenance of high-definition surveillance systems for comprehensive property monitoring and remote viewing.</p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <img src="service-fencing.webp" alt="Electric Fencing" class="service-card-img">
+                <div class="service-card-content">
+                    <h3>Electric Fencing</h3>
+                    <p>Design and installation of highly secure perimeter defense systems to deter, detect, and delay unauthorized access.</p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <img src="service-risk.webp" alt="Risk Assessment" class="service-card-img">
+                <div class="service-card-content">
+                    <h3>Risk Assessment</h3>
+                    <p>Comprehensive security audits and vulnerability evaluations to design tailored mitigation strategies for your unique assets.</p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <img src="service-alarms.webp" alt="Intrusion Alarms Installation" class="service-card-img">
+                <div class="service-card-content">
+                    <h3>Intrusion Alarms Installation</h3>
+                    <p>State-of-the-art alarm systems with instant automated alerts to quickly detect and report unauthorized entry breaches.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- OPERATIONS / GALLERY SECTION -->
+    <section class="section-padding" id="gallery">
+        <div class="gallery-container">
+            <div class="section-header">
+                <h2>Our Operations in Action</h2>
+            </div>
+            <div class="gallery">
+                <img src="guard-patrol.webp" alt="Security Guard on active patrol">
+                <img src="cctv-monitoring.webp" alt="24/7 CCTV Surveillance Room">
+                <img src="k9-unit.webp" alt="Specialized K9 Security Unit">
+                <img src="fleet-vehicles.webp" alt="Rapid Response Patrol Vehicles">
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="section-padding services-bg" id="contact">
+        <div class="section-header">
+            <h2>Contact Us</h2>
+            <p>Get in touch with our operations team for a customized security assessment.</p>
+        </div>
+        <div class="contact-content">
+            <div class="contact-info">
+                <h3>Headquarters</h3>
+                <p><span>📍</span> <span>Mile 7, Opposite Ruttchen Trucks Gh. Ltd.<br>Near Mile 7 Police Station,<br>Achimota, Accra, Ghana</span></p>
+                <p><span>📞</span> <span>+233 (0) 55 715 0062</span></p>
+                <p><span>✉️</span> <span>info@dkbanchorsecurity.com</span></p>
+            </div>
+            
+            <form class="contact-form" id="pageQuoteForm">
+                <input type="text" placeholder="Full Name" required>
+                <input type="email" placeholder="Email Address" required>
+                <textarea rows="5" placeholder="Your Security Requirements" required></textarea>
+                <button type="submit" class="btn">Send Request</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER SECTION -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>DKB Anchor Security</h3>
+                <p>Delivering top-tier protection, proactive patrols, and absolute peace of mind through highly trained professionals and advanced technology.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#gallery">Operations</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <div class="footer-contact-info">
+                    <p><span>📍</span> <span>Mile 7, Opposite Ruttchen Trucks Gh. Ltd.<br>Near Mile 7 Police Station,<br>Achimota, Accra, Ghana</span></p>
+                    <p><span>📞</span> <span>+233 (0) 55 715 0062</span></p>
+                    <p><span>✉️</span> <span>info@dkbanchorsecurity.com</span></p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 DKB Anchor Security Services Ltd. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/233557150062" class="whatsapp-float" target="_blank" rel="noopener noreferrer">
+        💬 Chat with Us
+    </a>
+
+    <!-- FIREBASE BACKEND, ANALYTICS & FORM LOGIC -->
+    <script type="module">
+        // 1. Import Firebase Modular SDK
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-analytics.js";
+        import { 
+            getFirestore, 
+            initializeFirestore, 
+            persistentLocalCache, 
+            collection, 
+            addDoc, 
+            serverTimestamp 
+        } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-firestore.js";
+
+        // 2. Your Live Firebase Configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyCDErvcGrcGV7fvbNWZrHEOBaxZy3dvAFk",
+            authDomain: "quote-request-55ac5.firebaseapp.com",
+            projectId: "quote-request-55ac5",
+            storageBucket: "quote-request-55ac5.firebasestorage.app",
+            messagingSenderId: "88359054642",
+            appId: "1:88359054642:web:cff21af6e7d5678f0fbb2b",
+            measurementId: "G-JD7T491EVW"
+        };
+
+        // 3. Initialize Firebase, Analytics & Native Offline Persistence
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const db = initializeFirestore(app, {
+            localCache: persistentLocalCache()
+        });
+
+        // --- UI Modal Functionality ---
+        const modal = document.getElementById('consultationModal');
+        const openModalBtn = document.getElementById('openModalBtn');
+        const closeModalBtn = document.getElementById('closeModal');
+
+        openModalBtn.addEventListener('click', () => modal.classList.add('active'));
+        closeModalBtn.addEventListener('click', () => modal.classList.remove('active'));
+        window.addEventListener('click', (e) => { if (e.target === modal) modal.classList.remove('active'); });
+
+        // --- 5 Image Hero Carousel Auto-Scroll Logic ---
+        const track = document.getElementById('heroTrack');
+        const dots = document.querySelectorAll('.dot');
+        let currentSlide = 0;
+        const totalSlides = 5;
+        let slideInterval;
+
+        function updateSlider() {
+            track.style.transform = `translateX(-${currentSlide * 20}%)`;
+            dots.forEach(dot => dot.classList.remove('active'));
+            dots[currentSlide].classList.add('active');
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateSlider();
+        }
+
+        window.goToSlide = function(index) {
+            currentSlide = index;
+            updateSlider();
+            clearInterval(slideInterval); 
+            slideInterval = setInterval(nextSlide, 4500); 
+        }
+        slideInterval = setInterval(nextSlide, 4500);
+
+        // --- Firebase Form Submission Logic (Optimistic / Instant UI) ---
+        function handleFormSubmit(e, formId) {
+            e.preventDefault();
+            
+            const submitBtn = e.target.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerText;
+            submitBtn.innerText = "Processing...";
+            submitBtn.disabled = true;
+
+            // Extract data safely avoiding specific ID case-sensitivity issues
+            const nameInput = e.target.querySelector('input[type="text"]');
+            const emailInput = e.target.querySelector('input[type="email"]');
+            const phoneInput = e.target.querySelector('input[type="tel"]');
+            const messageInput = e.target.querySelector('textarea');
+
+            const name = nameInput ? nameInput.value : "";
+            const email = emailInput ? emailInput.value : "";
+            const phone = phoneInput ? phoneInput.value : "Not Provided";
+            const message = messageInput ? messageInput.value : "";
+
+            // Fire the database write in the background without making the user wait
+            addDoc(collection(db, "quote_requests"), {
+                name: name,
+                email: email,
+                phone: phone,
+                message: message,
+                source: formId,
+                status: "new",
+                timestamp: serverTimestamp()
+            }).catch(error => {
+                console.error("Background sync error: ", error);
+            });
+
+            // Instantly update the UI for the user
+            e.target.reset(); // Clear the form
+            submitBtn.innerText = originalText; // Reset button text immediately
+            submitBtn.disabled = false;
+            
+            // If it was the popup form, close the modal immediately
+            if (formId === 'popupQuoteForm') {
+                modal.classList.remove('active');
+            }
+            
+            // Wait 50 milliseconds before showing the alert so the browser has time to visually restore the button
+            setTimeout(() => {
+                alert("Thank you! Your request has been securely submitted. We will contact you shortly.");
+            }, 50);
+        }
+
+        // Attach listeners 
+        document.getElementById('popupQuoteForm').addEventListener('submit', (e) => handleFormSubmit(e, 'popupQuoteForm'));
+        document.getElementById('pageQuoteForm').addEventListener('submit', (e) => handleFormSubmit(e, 'pageQuoteForm'));
+    </script>
+</body>
+</html>
