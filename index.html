@@ -5,14 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DKB Anchor Security Services Ltd.</title>
     
-    <!-- Cross-Device Favicons & App Icons -->
     <link rel="apple-touch-icon" sizes="180x180" href="logo.png">
     <link rel="icon" type="image/png" sizes="32x32" href="logo.png">
     <link rel="icon" type="image/png" sizes="16x16" href="logo.png">
     <link rel="shortcut icon" href="logo.png">
     
-    <!-- SEO & Performance -->
     <meta name="description" content="Professional security services, residential and corporate guarding, and rapid response solutions in Ghana.">
+    <meta property="og:title" content="DKB Anchor Security Services Ltd.">
+    <meta property="og:description" content="Professional security services, residential and corporate guarding, and rapid response solutions in Ghana.">
+    <meta property="og:image" content="hero-slider-1.webp"> <meta property="og:url" content="https://www.dkbanchorsecurity.com">
+    <meta property="og:type" content="website">
+    
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#0A192F">
     
@@ -207,7 +210,7 @@
         }
 
         .dot:hover {
-            background-color: rgba(212, 175, 55, 0.7); /* Gold with opacity */
+            background-color: rgba(212, 175, 55, 0.7);
         }
 
         /* Modal / Pop-up Styles */
@@ -257,6 +260,9 @@
             color: #999;
             cursor: pointer;
             transition: color 0.3s;
+            background: none;
+            border: none;
+            padding: 0;
         }
 
         .close-modal:hover {
@@ -601,7 +607,6 @@
 </head>
 <body>
 
-    <!-- NAVIGATION -->
     <header>
         <a href="#home" class="logo-container">
             <img src="logo.webp" alt="DKB Anchor Security Services Ltd. Logo" class="logo">
@@ -616,10 +621,8 @@
         </nav>
     </header>
 
-    <!-- HOME / HERO SECTION -->
     <section class="hero" id="home">
         
-        <!-- 5 Auto-Scrollable Background Images -->
         <div class="hero-carousel">
             <div class="carousel-track" id="heroTrack">
                 <img src="hero-slider-1.webp" alt="Professional Security Guards">
@@ -630,17 +633,14 @@
             </div>
         </div>
 
-        <!-- Dark Overlay -->
         <div class="hero-overlay"></div>
 
-        <!-- Text & Button Container -->
         <div class="hero-content">
             <h2>Uncompromising Security Solutions</h2>
             <p>Delivering top-tier protection, proactive patrols, and absolute peace of mind through highly trained professionals and advanced technology.</p>
             <button id="openModalBtn" class="btn">Request a Consultation</button>
         </div>
 
-        <!-- Carousel Indicators (Dots) -->
         <div class="slider-indicators">
             <span class="dot active" onclick="goToSlide(0)"></span>
             <span class="dot" onclick="goToSlide(1)"></span>
@@ -650,7 +650,6 @@
         </div>
     </section>
 
-    <!-- ABOUT US SECTION -->
     <section class="section-padding" id="about">
         <div class="section-header">
             <h2>About Us</h2>
@@ -662,27 +661,26 @@
                 <p>Our personnel are rigorously vetted and highly trained to handle diverse security challenges. From manned guarding and specialized electronic surveillance to rapid response and comprehensive risk assessments, we operate with a singular mission: to deliver absolute peace of mind and safety to our clients around the clock.</p>
             </div>
             <div class="about-image">
-                <img src="about-us.webp" alt="DKB Anchor Security Team and Operations">
+                <img src="about-us.webp" alt="DKB Anchor Security Team and Operations" loading="lazy">
             </div>
         </div>
     </section>
 
-    <!-- CONSULTATION MODAL / POPUP -->
     <div class="modal-overlay" id="consultationModal">
         <div class="modal-content">
-            <span class="close-modal" id="closeModal">&times;</span>
+            <button class="close-modal" id="closeModal" aria-label="Close modal">&times;</button>
             <h3>Request a Quote</h3>
             <form class="contact-form" id="popupQuoteForm">
-                <input type="text" placeholder="Full Name" required>
-                <input type="email" placeholder="Email Address" required>
-                <input type="tel" placeholder="Phone Number" required>
-                <textarea rows="4" placeholder="Briefly describe your security requirements..." required></textarea>
+                <input type="text" name="Full Name" placeholder="Full Name" required>
+                <input type="email" name="Email Address" placeholder="Email Address" required>
+                <input type="tel" name="Phone Number" placeholder="Phone Number" required>
+                <input type="hidden" name="Source" value="Popup Modal Form">
+                <textarea name="Message" rows="4" placeholder="Briefly describe your security requirements..." required></textarea>
                 <button type="submit" class="btn" style="width: 100%;">Submit Request</button>
             </form>
         </div>
     </div>
 
-    <!-- SERVICES SECTION -->
     <section class="section-padding services-bg" id="services">
         <div class="section-header">
             <h2>Our Services</h2>
@@ -691,7 +689,7 @@
         <div class="services-grid">
             
             <div class="service-card">
-                <img src="service-manned.webp" alt="Manned Guarding" class="service-card-img">
+                <img src="service-manned.webp" alt="Manned Guarding" class="service-card-img" loading="lazy">
                 <div class="service-card-content">
                     <h3>Manned Guarding</h3>
                     <p>Highly trained and vetted personnel providing physical security for commercial, industrial, and residential properties.</p>
@@ -699,7 +697,7 @@
             </div>
 
             <div class="service-card">
-                <img src="service-residential.webp" alt="Residential Security" class="service-card-img">
+                <img src="service-residential.webp" alt="Residential Security" class="service-card-img" loading="lazy">
                 <div class="service-card-content">
                     <h3>Residential Security</h3>
                     <p>Comprehensive security solutions designed to protect your home and family, offering 24/7 peace of mind for private residences and gated communities.</p>
@@ -707,7 +705,7 @@
             </div>
 
             <div class="service-card">
-                <img src="service-corporate.webp" alt="Corporate Security" class="service-card-img">
+                <img src="service-corporate.webp" alt="Corporate Security" class="service-card-img" loading="lazy">
                 <div class="service-card-content">
                     <h3>Corporate Security</h3>
                     <p>Tailored security protocols for business environments, safeguarding employees, sensitive data, and physical assets with seamless professionalism.</p>
@@ -715,7 +713,7 @@
             </div>
 
             <div class="service-card">
-                <img src="service-surveillance.webp" alt="Electronic Surveillance" class="service-card-img">
+                <img src="service-surveillance.webp" alt="Electronic Surveillance" class="service-card-img" loading="lazy">
                 <div class="service-card-content">
                     <h3>Electronic Surveillance</h3>
                     <p>24/7 CCTV monitoring and advanced access control systems to keep a constant watch over your premises.</p>
@@ -723,7 +721,7 @@
             </div>
 
             <div class="service-card">
-                <img src="service-response.webp" alt="Rapid Response" class="service-card-img">
+                <img src="service-response.webp" alt="Rapid Response" class="service-card-img" loading="lazy">
                 <div class="service-card-content">
                     <h3>Rapid Response</h3>
                     <p>Mobile patrol units on standby, ready to deploy immediately to alarm activations or incident reports.</p>
@@ -731,7 +729,7 @@
             </div>
 
             <div class="service-card">
-                <img src="service-cctv-install.webp" alt="CCTV Camera Installation" class="service-card-img">
+                <img src="service-cctv-install.webp" alt="CCTV Camera Installation" class="service-card-img" loading="lazy">
                 <div class="service-card-content">
                     <h3>CCTV Camera Installation</h3>
                     <p>Professional installation and maintenance of high-definition surveillance systems for comprehensive property monitoring and remote viewing.</p>
@@ -739,7 +737,7 @@
             </div>
 
             <div class="service-card">
-                <img src="service-fencing.webp" alt="Electric Fencing" class="service-card-img">
+                <img src="service-fencing.webp" alt="Electric Fencing" class="service-card-img" loading="lazy">
                 <div class="service-card-content">
                     <h3>Electric Fencing</h3>
                     <p>Design and installation of highly secure perimeter defense systems to deter, detect, and delay unauthorized access.</p>
@@ -747,7 +745,7 @@
             </div>
 
             <div class="service-card">
-                <img src="service-risk.webp" alt="Risk Assessment" class="service-card-img">
+                <img src="service-risk.webp" alt="Risk Assessment" class="service-card-img" loading="lazy">
                 <div class="service-card-content">
                     <h3>Risk Assessment</h3>
                     <p>Comprehensive security audits and vulnerability evaluations to design tailored mitigation strategies for your unique assets.</p>
@@ -755,7 +753,7 @@
             </div>
 
             <div class="service-card">
-                <img src="service-alarms.webp" alt="Intrusion Alarms Installation" class="service-card-img">
+                <img src="service-alarms.webp" alt="Intrusion Alarms Installation" class="service-card-img" loading="lazy">
                 <div class="service-card-content">
                     <h3>Intrusion Alarms Installation</h3>
                     <p>State-of-the-art alarm systems with instant automated alerts to quickly detect and report unauthorized entry breaches.</p>
@@ -765,22 +763,20 @@
         </div>
     </section>
 
-    <!-- OPERATIONS / GALLERY SECTION -->
     <section class="section-padding" id="gallery">
         <div class="gallery-container">
             <div class="section-header">
                 <h2>Our Operations in Action</h2>
             </div>
             <div class="gallery">
-                <img src="guard-patrol.webp" alt="Security Guard on active patrol">
-                <img src="cctv-monitoring.webp" alt="24/7 CCTV Surveillance Room">
-                <img src="k9-unit.webp" alt="Specialized K9 Security Unit">
-                <img src="fleet-vehicles.webp" alt="Rapid Response Patrol Vehicles">
+                <img src="guard-patrol.webp" alt="Security Guard on active patrol" loading="lazy">
+                <img src="cctv-monitoring.webp" alt="24/7 CCTV Surveillance Room" loading="lazy">
+                <img src="k9-unit.webp" alt="Specialized K9 Security Unit" loading="lazy">
+                <img src="fleet-vehicles.webp" alt="Rapid Response Patrol Vehicles" loading="lazy">
             </div>
         </div>
     </section>
 
-    <!-- CONTACT SECTION -->
     <section class="section-padding services-bg" id="contact">
         <div class="section-header">
             <h2>Contact Us</h2>
@@ -795,17 +791,16 @@
             </div>
             
             <form class="contact-form" id="pageQuoteForm">
-                <input type="text" placeholder="Full Name" required>
-                <input type="email" placeholder="Email Address" required>
-                <!-- Added Phone Number Field Here -->
-                <input type="tel" placeholder="Phone Number" required>
-                <textarea rows="5" placeholder="Your Security Requirements" required></textarea>
+                <input type="text" name="Full Name" placeholder="Full Name" required>
+                <input type="email" name="Email Address" placeholder="Email Address" required>
+                <input type="tel" name="Phone Number" placeholder="Phone Number" required>
+                <input type="hidden" name="Source" value="Bottom Contact Form">
+                <textarea name="Message" rows="5" placeholder="Your Security Requirements" required></textarea>
                 <button type="submit" class="btn">Send Request</button>
             </form>
         </div>
     </section>
 
-    <!-- FOOTER SECTION -->
     <footer>
         <div class="footer-content">
             <div class="footer-section">
@@ -836,43 +831,11 @@
         </div>
     </footer>
 
-    <!-- Floating WhatsApp Button -->
     <a href="https://wa.me/233557150062" class="whatsapp-float" target="_blank" rel="noopener noreferrer">
         💬 Chat with Us
     </a>
 
-    <!-- FIREBASE BACKEND, ANALYTICS & FORM LOGIC -->
-    <script type="module">
-        // 1. Import Firebase Modular SDK
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-app.js";
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-analytics.js";
-        import { 
-            getFirestore, 
-            initializeFirestore, 
-            persistentLocalCache, 
-            collection, 
-            addDoc, 
-            serverTimestamp 
-        } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-firestore.js";
-
-        // 2. Your Live Firebase Configuration
-        const firebaseConfig = {
-            apiKey: "AIzaSyCDErvcGrcGV7fvbNWZrHEOBaxZy3dvAFk",
-            authDomain: "quote-request-55ac5.firebaseapp.com",
-            projectId: "quote-request-55ac5",
-            storageBucket: "quote-request-55ac5.firebasestorage.app",
-            messagingSenderId: "88359054642",
-            appId: "1:88359054642:web:cff21af6e7d5678f0fbb2b",
-            measurementId: "G-JD7T491EVW"
-        };
-
-        // 3. Initialize Firebase, Analytics & Native Offline Persistence
-        const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
-        const db = initializeFirestore(app, {
-            localCache: persistentLocalCache()
-        });
-
+    <script>
         // --- UI Modal Functionality ---
         const modal = document.getElementById('consultationModal');
         const openModalBtn = document.getElementById('openModalBtn');
@@ -908,53 +871,54 @@
         }
         slideInterval = setInterval(nextSlide, 4500);
 
-        // --- Firebase Form Submission Logic (Optimistic / Instant UI) ---
-        function handleFormSubmit(e, formId) {
+        // --- Form Submission Logic (Sending to Email via Formspree) ---
+        async function handleFormSubmit(e, formId) {
             e.preventDefault();
             
-            const submitBtn = e.target.querySelector('button[type="submit"]');
+            const form = e.target;
+            const submitBtn = form.querySelector('button[type="submit"]');
             const originalText = submitBtn.innerText;
+            
+            // UI Update: Disable button and show processing state
             submitBtn.innerText = "Processing...";
             submitBtn.disabled = true;
 
-            // Extract data safely avoiding specific ID case-sensitivity issues
-            const nameInput = e.target.querySelector('input[type="text"]');
-            const emailInput = e.target.querySelector('input[type="email"]');
-            const phoneInput = e.target.querySelector('input[type="tel"]');
-            const messageInput = e.target.querySelector('textarea');
+            // Your specific Formspree endpoint
+            const endpoint = "https://formspree.io/f/mredlnol"; 
 
-            const name = nameInput ? nameInput.value : "";
-            const email = emailInput ? emailInput.value : "";
-            const phone = phoneInput ? phoneInput.value : "Not Provided";
-            const message = messageInput ? messageInput.value : "";
+            try {
+                // Send the data securely in the background
+                const response = await fetch(endpoint, {
+                    method: 'POST',
+                    body: new FormData(form),
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
 
-            // Fire the database write in the background without making the user wait
-            addDoc(collection(db, "quote_requests"), {
-                name: name,
-                email: email,
-                phone: phone,
-                message: message,
-                source: formId,
-                status: "new",
-                timestamp: serverTimestamp()
-            }).catch(error => {
-                console.error("Background sync error: ", error);
-            });
-
-            // Instantly update the UI for the user
-            e.target.reset(); // Clear the form
-            submitBtn.innerText = originalText; // Reset button text immediately
-            submitBtn.disabled = false;
-            
-            // If it was the popup form, close the modal immediately
-            if (formId === 'popupQuoteForm') {
-                modal.classList.remove('active');
+                if (response.ok) {
+                    // Success! Clear the form and reset UI
+                    form.reset();
+                    
+                    // Close modal if it was the popup form
+                    if (formId === 'popupQuoteForm') {
+                        modal.classList.remove('active');
+                    }
+                    
+                    // Small delay so browser can render UI changes before the alert blocks the thread
+                    setTimeout(() => {
+                        alert("Thank you! Your request has been sent to info@dkbanchorsecurity.com. We will contact you shortly.");
+                    }, 50);
+                } else {
+                    alert("Oops! There was a problem submitting your form. Please try again.");
+                }
+            } catch (error) {
+                alert("Oops! A network error occurred. Please check your connection and try again.");
+            } finally {
+                // Always restore the button state whether it succeeds or fails
+                submitBtn.innerText = originalText;
+                submitBtn.disabled = false;
             }
-            
-            // Wait 50 milliseconds before showing the alert so the browser has time to visually restore the button
-            setTimeout(() => {
-                alert("Thank you! Your request has been securely submitted. We will contact you shortly.");
-            }, 50);
         }
 
         // Attach listeners 
