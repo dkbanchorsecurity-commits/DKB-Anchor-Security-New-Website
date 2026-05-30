@@ -13,7 +13,8 @@
     <meta name="description" content="Professional security services, residential and corporate guarding, and rapid response solutions in Ghana.">
     <meta property="og:title" content="DKB Anchor Security Services Ltd.">
     <meta property="og:description" content="Professional security services, residential and corporate guarding, and rapid response solutions in Ghana.">
-    <meta property="og:image" content="hero-slider-1.webp"> <meta property="og:url" content="https://www.dkbanchorsecurity.com">
+    <meta property="og:image" content="hero-slider-1.webp"> 
+    <meta property="og:url" content="https://www.dkbanchorsecurity.com">
     <meta property="og:type" content="website">
     
     <link rel="manifest" href="manifest.json">
@@ -92,6 +93,34 @@
             color: var(--gold); 
         }
 
+        /* Header Social Icons */
+        .nav-social-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-left: 30px;
+            border-left: 1px solid rgba(255, 255, 255, 0.2);
+            padding-left: 30px;
+            height: 24px;
+        }
+
+        nav a.nav-social {
+            margin-left: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-social svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+            transition: transform 0.2s ease;
+        }
+
+        nav a.nav-social:hover svg {
+            transform: scale(1.15);
+        }
+
         /* Hero Section (Carousel as Background) */
         .hero { 
             position: relative;
@@ -123,7 +152,7 @@
         }
 
         .carousel-track img {
-            flex: 0 0 20%; /* Each image takes 1/5th of the track */
+            flex: 0 0 20%;
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -136,7 +165,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(10, 25, 47, 0.75); /* Deep blue with 75% opacity */
+            background-color: rgba(10, 25, 47, 0.75);
             z-index: 2;
         }
 
@@ -417,6 +446,88 @@
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
+        /* Testimonials Section */
+        .testimonials-bg {
+            background-color: var(--off-white);
+        }
+
+        .testimonials-slider {
+            display: flex;
+            overflow-x: auto;
+            gap: 30px;
+            padding: 10px 10px 40px 10px; /* Padding ensures hover shadow isn't cut off */
+            scroll-behavior: smooth;
+            scroll-snap-type: x mandatory; /* Enables native snapping */
+            max-width: 1200px;
+            margin: 0 auto;
+            
+            /* Hide scrollbar for a cleaner look */
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* IE/Edge */
+        }
+
+        .testimonials-slider::-webkit-scrollbar {
+            display: none; /* Chrome/Safari */
+        }
+
+        .testimonial-card {
+            background-color: #ffffff;
+            padding: 40px 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--gold);
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            
+            /* Slider Card Sizing */
+            flex: 0 0 350px; 
+            scroll-snap-align: center; /* Snaps card to the center on mobile swipe */
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .quote-mark {
+            color: var(--gold);
+            font-size: 70px;
+            font-family: Georgia, serif;
+            line-height: 1;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            opacity: 0.2;
+        }
+
+        .testimonial-text {
+            font-size: 16px;
+            line-height: 1.8;
+            font-style: italic;
+            color: var(--text-dark);
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .client-info {
+            display: flex;
+            flex-direction: column;
+            border-left: 3px solid var(--deep-blue);
+            padding-left: 15px;
+        }
+
+        .client-info strong {
+            color: var(--deep-blue);
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .client-info span {
+            color: #666;
+            font-size: 14px;
+        }
+
         /* Contact Section & Form Shared Styles */
         .contact-content {
             display: flex;
@@ -513,6 +624,37 @@
             margin-bottom: 15px;
         }
 
+        /* Social Media Links */
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--white);
+            transition: all 0.3s ease;
+        }
+
+        .social-links a svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
+        .social-links a:hover {
+            background-color: var(--gold);
+            color: var(--deep-blue);
+            transform: translateY(-3px);
+        }
+
         .footer-links {
             list-style: none;
             padding: 0;
@@ -587,6 +729,14 @@
             nav a {
                 margin: 0 10px;
             }
+            .nav-social-wrapper {
+                margin-left: 0;
+                padding-left: 0;
+                border-left: none;
+                width: 100%;
+                justify-content: center;
+                margin-top: 10px;
+            }
             .hero-content h2 {
                 font-size: 38px;
             }
@@ -598,6 +748,9 @@
             }
             .about-layout {
                 flex-direction: column;
+            }
+            .testimonial-card {
+                flex: 0 0 85vw; /* Takes up 85% of the screen width on phones */
             }
             footer {
                 padding: 50px 20px 20px 20px;
@@ -617,7 +770,20 @@
             <a href="#about">About Us</a>
             <a href="#services">Services</a>
             <a href="#gallery">Operations</a>
+            <a href="#testimonials">Testimonials</a>
             <a href="#contact">Contact</a>
+            
+            <div class="nav-social-wrapper">
+                <a href="https://web.facebook.com/profile.php?id=61590545308688" target="_blank" rel="noopener noreferrer" class="nav-social" aria-label="Facebook">
+                    <svg viewBox="0 0 24 24"><path d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14c-.326-.043-1.557-.14-2.857-.14C11.928 2 10 3.657 10 6.7v2.8H7v4h3V22h4v-8.5z"/></svg>
+                </a>
+                <a href="https://www.instagram.com/dkbanchorsecurity/" target="_blank" rel="noopener noreferrer" class="nav-social" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.7-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                </a>
+                <a href="https://www.tiktok.com/@dkbanchorsecurity" target="_blank" rel="noopener noreferrer" class="nav-social" aria-label="TikTok">
+                    <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.04.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93v7.2c0 1.96-.5 3.96-1.7 5.47-1.15 1.4-2.73 2.26-4.49 2.53-2.39.37-4.92-.09-6.85-1.5-1.83-1.33-2.97-3.41-3.13-5.63-.19-2.65.86-5.32 2.82-7.06 1.92-1.7 4.54-2.3 7.02-1.92V11.2c-1.27-.12-2.58.07-3.73.6-1.15.54-2.12 1.5-2.58 2.68-.42 1.05-.44 2.22-.05 3.25.4 1.05 1.19 1.9 2.16 2.37 1.24.6 2.72.63 4.02.19 1.15-.4 2.1-1.32 2.56-2.45.18-.45.28-.93.3-1.42.06-2.18.02-4.36.04-6.54.02-3.23-.02-6.46.04-9.69.01-.06.02-.12.02-.18z"/></svg>
+                </a>
+            </div>
         </nav>
     </header>
 
@@ -777,7 +943,90 @@
         </div>
     </section>
 
-    <section class="section-padding services-bg" id="contact">
+    <section class="section-padding testimonials-bg" id="testimonials">
+        <div class="section-header">
+            <h2>Client Testimonials</h2>
+            <p>What our partners and clients say about our security solutions.</p>
+        </div>
+        
+        <div class="testimonials-slider" id="testimonialSlider">
+            
+            <div class="testimonial-card">
+                <div class="quote-mark">“</div>
+                <p class="testimonial-text">DKB Anchor Security has completely transformed our corporate campus's safety protocols. Their guards are highly professional, remarkably alert, and their rapid response team is unmatched in Accra.</p>
+                <div class="client-info">
+                    <strong>Kwame Mensah</strong>
+                    <span>Facility Manager, TechHub Industrial</span>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="quote-mark">“</div>
+                <p class="testimonial-text">We contracted them for our gated community. The transition was seamless, and residents feel much safer with their 24/7 proactive patrols and the new electronic access control systems they installed.</p>
+                <div class="client-info">
+                    <strong>Abena Osei</strong>
+                    <span>Chairperson, Royal Estates Residents Assoc.</span>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="quote-mark">“</div>
+                <p class="testimonial-text">The CCTV and electric fencing installation was done flawlessly. Their team took the time to comprehensively assess our vulnerabilities and provided a tailored solution that fit our budget perfectly.</p>
+                <div class="client-info">
+                    <strong>David Thompson</strong>
+                    <span>Managing Director, Thompson Logistics</span>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="quote-mark">“</div>
+                <p class="testimonial-text">DKB Anchor Security provides exceptional guarding services for our retail branches across Accra. Their guards are always punctual, well-presented, and highly vigilant. Incident rates have reduced significantly since they took over.</p>
+                <div class="client-info">
+                    <strong>Grace Appiah</strong>
+                    <span>Operations Manager, Pearl Supermarkets</span>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="quote-mark">“</div>
+                <p class="testimonial-text">We rely on DKB for our warehouse security. Their combination of K9 units and strict access control gives us complete peace of mind, especially during the night shifts. Highly recommended for heavy industry protection.</p>
+                <div class="client-info">
+                    <strong>Samuel Ofori</strong>
+                    <span>Logistics Director, West African Freights</span>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="quote-mark">“</div>
+                <p class="testimonial-text">Professionalism at its peak. DKB Anchor Security’s risk assessment uncovered vulnerabilities we didn't even know existed. Their strategic implementation of surveillance systems has modernized our entire corporate safety infrastructure.</p>
+                <div class="client-info">
+                    <strong>Sarah Nartey</strong>
+                    <span>Head of Administration, Zenith Financial Services</span>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="quote-mark">“</div>
+                <p class="testimonial-text">After a series of break-ins in our neighborhood, we hired DKB to install intrusion alarms and an electric fence. The automated alerts are incredibly fast, and their mobile patrol is always on standby. I finally sleep soundly.</p>
+                <div class="client-info">
+                    <strong>Michael Donkor</strong>
+                    <span>Private Resident, Cantonments</span>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="quote-mark">“</div>
+                <p class="testimonial-text">During our annual corporate summit, DKB Anchor deployed a phenomenal rapid response and crowd control team. Their presence was non-intrusive yet incredibly reassuring, ensuring the 3-day event ran without a hitch.</p>
+                <div class="client-info">
+                    <strong>Dr. Evelyn O. Ansah</strong>
+                    <span>CEO, Apex Solutions Ghana</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="section-padding" id="contact">
         <div class="section-header">
             <h2>Contact Us</h2>
             <p>Get in touch with our operations team for a customized security assessment.</p>
@@ -786,7 +1035,7 @@
             <div class="contact-info">
                 <h3>Headquarters</h3>
                 <p><span>📍</span> <span>Mile 7, Opposite Ruttchen Trucks Gh. Ltd.<br>Near Mile 7 Police Station,<br>Achimota, Accra, Ghana</span></p>
-                <p><span>📞</span> <span>+233 (0) 55 715 0062</span></p>
+                <p><span>📞</span> <span>+233 (0) 55 715 0062<br>+233 (0) 24 707 1531</span></p>
                 <p><span>✉️</span> <span>info@dkbanchorsecurity.com</span></p>
             </div>
             
@@ -806,6 +1055,20 @@
             <div class="footer-section">
                 <h3>DKB Anchor Security</h3>
                 <p>Delivering top-tier protection, proactive patrols, and absolute peace of mind through highly trained professionals and advanced technology.</p>
+                
+                <div class="social-links">
+                    <a href="https://web.facebook.com/profile.php?id=61590545308688" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                        <svg viewBox="0 0 24 24"><path d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14c-.326-.043-1.557-.14-2.857-.14C11.928 2 10 3.657 10 6.7v2.8H7v4h3V22h4v-8.5z"/></svg>
+                    </a>
+                    
+                    <a href="https://www.instagram.com/dkbanchorsecurity/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.7-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                    </a>
+                    
+                    <a href="https://www.tiktok.com/@dkbanchorsecurity" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+                        <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.04.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93v7.2c0 1.96-.5 3.96-1.7 5.47-1.15 1.4-2.73 2.26-4.49 2.53-2.39.37-4.92-.09-6.85-1.5-1.83-1.33-2.97-3.41-3.13-5.63-.19-2.65.86-5.32 2.82-7.06 1.92-1.7 4.54-2.3 7.02-1.92V11.2c-1.27-.12-2.58.07-3.73.6-1.15.54-2.12 1.5-2.58 2.68-.42 1.05-.44 2.22-.05 3.25.4 1.05 1.19 1.9 2.16 2.37 1.24.6 2.72.63 4.02.19 1.15-.4 2.1-1.32 2.56-2.45.18-.45.28-.93.3-1.42.06-2.18.02-4.36.04-6.54.02-3.23-.02-6.46.04-9.69.01-.06.02-.12.02-.18z"/></svg>
+                    </a>
+                </div>
             </div>
             <div class="footer-section">
                 <h3>Quick Links</h3>
@@ -814,6 +1077,7 @@
                     <li><a href="#about">About Us</a></li>
                     <li><a href="#services">Services</a></li>
                     <li><a href="#gallery">Operations</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </div>
@@ -821,7 +1085,7 @@
                 <h3>Contact Us</h3>
                 <div class="footer-contact-info">
                     <p><span>📍</span> <span>Mile 7, Opposite Ruttchen Trucks Gh. Ltd.<br>Near Mile 7 Police Station,<br>Achimota, Accra, Ghana</span></p>
-                    <p><span>📞</span> <span>+233 (0) 55 715 0062</span></p>
+                    <p><span>📞</span> <span>+233 (0) 55 715 0062<br>+233 (0) 24 707 1531</span></p>
                     <p><span>✉️</span> <span>info@dkbanchorsecurity.com</span></p>
                 </div>
             </div>
@@ -870,6 +1134,33 @@
             slideInterval = setInterval(nextSlide, 4500); 
         }
         slideInterval = setInterval(nextSlide, 4500);
+
+        // --- Testimonial Auto-Scroll Logic ---
+        const testimonialSlider = document.getElementById('testimonialSlider');
+        let autoScrollInterval;
+
+        function startAutoScroll() {
+            // Scrolls every 4 seconds
+            autoScrollInterval = setInterval(() => {
+                // If we reach the end of the scrollable area, reset to the beginning
+                if (testimonialSlider.scrollLeft + testimonialSlider.clientWidth >= testimonialSlider.scrollWidth - 10) {
+                    testimonialSlider.scrollLeft = 0; 
+                } else {
+                    // Otherwise, scroll right by the width of one card + the 30px gap
+                    const cardWidth = testimonialSlider.querySelector('.testimonial-card').offsetWidth;
+                    testimonialSlider.scrollLeft += (cardWidth + 30); 
+                }
+            }, 4000); 
+        }
+
+        // Pause scrolling when the user interacts with the cards
+        testimonialSlider.addEventListener('mouseenter', () => clearInterval(autoScrollInterval));
+        testimonialSlider.addEventListener('mouseleave', startAutoScroll);
+        testimonialSlider.addEventListener('touchstart', () => clearInterval(autoScrollInterval));
+        testimonialSlider.addEventListener('touchend', startAutoScroll);
+
+        // Initialize the scroll
+        startAutoScroll();
 
         // --- Form Submission Logic (Sending to Email via Formspree) ---
         async function handleFormSubmit(e, formId) {
